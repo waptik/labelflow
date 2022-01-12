@@ -5,7 +5,7 @@ export const theme = extendTheme({
   styles: {
     global: (props: any) => ({
       body: {
-        color: mode("gray.800", "gray.200")(props),
+        color: mode("gray.800", "gray.50")(props),
       },
     }),
   },
@@ -13,6 +13,18 @@ export const theme = extendTheme({
   initialColorMode: "light",
   useSystemColorMode: true,
   colors: {
+    gray: {
+      "50": "#FEFEFE",
+      "100": "#EAEAEA",
+      "200": "#D8D8D8",
+      "300": "#B2B2B2",
+      "400": "#8C8C8C",
+      "500": "#4D4D4D",
+      "600": "#333333",
+      "700": "#2D2D2D",
+      "800": "#252526",
+      "900": "#1E1E1E",
+    },
     brand: {
       "50": "#EAFAFA",
       "100": "#C5F1F0",
