@@ -11,7 +11,7 @@ import { useApolloClient, useQuery, gql } from "@apollo/client";
 import { useRouter } from "next/router";
 import { Dropzone } from "./dropzone";
 import { FilesStatuses } from "./file-statuses";
-import { DroppedFile, UploadStatuses } from "../types";
+import { DroppedFile, UploadInfos } from "../types";
 
 import { importDroppedFiles } from "./import-dropped-files";
 import { flushPaginatedImagesCache } from "../../../dataset-images-list";
@@ -52,9 +52,7 @@ export const ImportImagesModalDropzone = ({
    * internal state
    */
   const [files, setFiles] = useState<Array<DroppedFile>>([]);
-  const [fileUploadStatuses, setFileUploadStatuses] = useState<UploadStatuses>(
-    {}
-  );
+  const [fileUploadInfos, setFileUploadInfos] = useState<UploadInfos>({});
 
   const { data: datasetResult } = useQuery(getDataset, {
     variables: { slug: datasetSlug, workspaceSlug },
@@ -76,7 +74,7 @@ export const ImportImagesModalDropzone = ({
         files: filesToImport,
         workspaceId,
         datasetId,
-        setFileUploadStatuses,
+        setFileUploadInfos,
         apolloClient,
       });
       onUploadEnd();
@@ -84,7 +82,7 @@ export const ImportImagesModalDropzone = ({
     [
       workspaceId,
       datasetId,
-      setFileUploadStatuses,
+      setFileUploadInfos,
       apolloClient,
       onUploadStart,
       onUploadEnd,
@@ -128,10 +126,7 @@ export const ImportImagesModalDropzone = ({
         {isEmpty(files) ? (
           <Dropzone onDropEnd={setFiles} />
         ) : (
-          <FilesStatuses
-            files={files}
-            fileUploadStatuses={fileUploadStatuses}
-          />
+          <FilesStatuses files={files} fileUploadInfos={fileUploadInfos} />
         )}
       </ModalBody>
     </>

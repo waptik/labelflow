@@ -221,6 +221,7 @@ export const typeDefs = gql`
 
   type ImportStatus {
     error: String
+    skippedCrowdAnnotations: Int!
   }
 
   enum InvitationResult {
