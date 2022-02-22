@@ -514,6 +514,7 @@ export const typeDefs = [
     id: ID
     name: String!
     image: String
+    plan: WorkspacePlan
   }
 
   input WorkspaceCreateOptions {

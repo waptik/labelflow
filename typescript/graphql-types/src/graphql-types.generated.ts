@@ -823,6 +823,7 @@ export type WorkspaceCreateInput = {
   id?: Maybe<Scalars['ID']>;
   name: Scalars['String'];
   image?: Maybe<Scalars['String']>;
+  plan?: Maybe<WorkspacePlan>;
 };
 
 export type WorkspaceCreateOptions = {
