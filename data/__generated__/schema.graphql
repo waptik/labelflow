@@ -523,7 +523,6 @@ enum WorkspacePlan {
   Community
   Starter
   Pro
-  Enterprise
 }
 
 input WorkspaceSlugAndDatasetSlug {

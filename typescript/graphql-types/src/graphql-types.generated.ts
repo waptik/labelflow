@@ -833,8 +833,7 @@ export type WorkspaceCreateOptions = {
 export enum WorkspacePlan {
   Community = 'Community',
   Starter = 'Starter',
-  Pro = 'Pro',
-  Enterprise = 'Enterprise'
+  Pro = 'Pro'
 }
 
 export type WorkspaceSlugAndDatasetSlug = {

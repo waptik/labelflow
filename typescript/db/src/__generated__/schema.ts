@@ -525,7 +525,6 @@ export const typeDefs = [
     Community
     Starter
     Pro
-    Enterprise
   }
 
   input WorkspaceSlugAndDatasetSlug {
