@@ -817,6 +817,7 @@ export type Workspace = {
   datasets: Array<Dataset>;
   memberships: Array<Membership>;
   stripeCustomerPortalUrl?: Maybe<Scalars['String']>;
+  status: WorkspaceStatus;
 };
 
 export type WorkspaceCreateInput = {
@@ -840,6 +841,18 @@ export type WorkspaceSlugAndDatasetSlug = {
   slug: Scalars['String'];
   workspaceSlug: Scalars['String'];
 };
+
+export enum WorkspaceStatus {
+  Active = 'active',
+  Trialing = 'trialing',
+  Incomplete = 'incomplete',
+  PastDue = 'past_due',
+  Unpaid = 'unpaid',
+  Canceled = 'canceled',
+  IncompleteExpired = 'incomplete_expired',
+  Ended = 'ended',
+  All = 'all'
+}
 
 export enum WorkspaceType {
   Local = 'Local',
@@ -1018,6 +1031,7 @@ export type ResolversTypes = {
   WorkspaceCreateOptions: WorkspaceCreateOptions;
   WorkspacePlan: WorkspacePlan;
   WorkspaceSlugAndDatasetSlug: WorkspaceSlugAndDatasetSlug;
+  WorkspaceStatus: WorkspaceStatus;
   WorkspaceType: WorkspaceType;
   WorkspaceUpdateInput: WorkspaceUpdateInput;
   WorkspaceWhereInput: WorkspaceWhereInput;
@@ -1332,6 +1346,7 @@ export type WorkspaceResolvers<ContextType = any, ParentType extends ResolversPa
   datasets?: Resolver<Array<ResolversTypes['Dataset']>, ParentType, ContextType>;
   memberships?: Resolver<Array<ResolversTypes['Membership']>, ParentType, ContextType>;
   stripeCustomerPortalUrl?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  status?: Resolver<ResolversTypes['WorkspaceStatus'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 

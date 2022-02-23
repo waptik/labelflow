@@ -508,6 +508,7 @@ export const typeDefs = [
     datasets: [Dataset!]!
     memberships: [Membership!]!
     stripeCustomerPortalUrl: String
+    status: WorkspaceStatus!
   }
 
   input WorkspaceCreateInput {
@@ -530,6 +531,18 @@ export const typeDefs = [
   input WorkspaceSlugAndDatasetSlug {
     slug: String!
     workspaceSlug: String!
+  }
+
+  enum WorkspaceStatus {
+    active
+    trialing
+    incomplete
+    past_due
+    unpaid
+    canceled
+    incomplete_expired
+    ended
+    all
   }
 
   enum WorkspaceType {
