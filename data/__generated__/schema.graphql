@@ -507,6 +507,7 @@ type Workspace {
   datasets: [Dataset!]!
   memberships: [Membership!]!
   stripeCustomerPortalUrl: String
+  imagesAggregates: ImagesAggregates!
 }
 
 input WorkspaceCreateInput {
@@ -523,7 +524,6 @@ enum WorkspacePlan {
   Community
   Starter
   Pro
-  Enterprise
 }
 
 input WorkspaceSlugAndDatasetSlug {

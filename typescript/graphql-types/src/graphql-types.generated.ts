@@ -818,6 +818,7 @@ export type Workspace = {
   datasets: Array<Dataset>;
   memberships: Array<Membership>;
   stripeCustomerPortalUrl?: Maybe<Scalars['String']>;
+  imagesAggregates: ImagesAggregates;
 };
 
 export type WorkspaceCreateInput = {
@@ -833,8 +834,7 @@ export type WorkspaceCreateOptions = {
 export enum WorkspacePlan {
   Community = 'Community',
   Starter = 'Starter',
-  Pro = 'Pro',
-  Enterprise = 'Enterprise'
+  Pro = 'Pro'
 }
 
 export type WorkspaceSlugAndDatasetSlug = {
@@ -1333,6 +1333,7 @@ export type WorkspaceResolvers<ContextType = any, ParentType extends ResolversPa
   datasets?: Resolver<Array<ResolversTypes['Dataset']>, ParentType, ContextType>;
   memberships?: Resolver<Array<ResolversTypes['Membership']>, ParentType, ContextType>;
   stripeCustomerPortalUrl?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  imagesAggregates?: Resolver<ResolversTypes['ImagesAggregates'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 

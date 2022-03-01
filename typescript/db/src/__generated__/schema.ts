@@ -509,6 +509,7 @@ export const typeDefs = [
     datasets: [Dataset!]!
     memberships: [Membership!]!
     stripeCustomerPortalUrl: String
+    imagesAggregates: ImagesAggregates!
   }
 
   input WorkspaceCreateInput {
@@ -525,7 +526,6 @@ export const typeDefs = [
     Community
     Starter
     Pro
-    Enterprise
   }
 
   input WorkspaceSlugAndDatasetSlug {
