@@ -11,7 +11,7 @@ import { Context, Repository } from "./types";
 
 import { throwIfResolvesToNil } from "./utils/throw-if-resolves-to-nil";
 
-const downloadUrlToDataUrl = async (
+export const downloadUrlToDataUrl = async (
   url: string,
   repository: Repository,
   req: undefined | Request
@@ -23,7 +23,7 @@ const downloadUrlToDataUrl = async (
   )}`;
 };
 
-const fetchIogServer = async (
+export const fetchIogServer = async (
   variables: RunIogInput
 ): Promise<{
   geometry: { type: string; coordinates: number[][][] };

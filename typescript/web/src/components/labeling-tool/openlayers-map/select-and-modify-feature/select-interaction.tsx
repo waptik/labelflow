@@ -151,8 +151,9 @@ export const SelectInteraction = ({
       selectedTool === Tools.SELECTION &&
       selectionToolState === SelectionToolState.IOG &&
       selectedLabelId != null
-    )
+    ) {
       return true;
+    }
     const feature = getClosestFeature(e);
     setSelectedLabelId(feature?.getProperties().id ?? null);
     return true;
@@ -188,7 +189,8 @@ export const SelectInteraction = ({
 
   return (
     <>
-      {selectedTool === Tools.SELECTION && (
+      {(selectedTool === Tools.SELECTION ||
+        selectedTool === Tools.AI_ASSISTANT) && (
         <olInteractionPointer
           // Key is a trick to force react open layers to take into account the change in image
           key={`${selectedTool}-${image.height}-${image.width}`}

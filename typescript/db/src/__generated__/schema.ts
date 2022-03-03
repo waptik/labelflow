@@ -419,6 +419,7 @@ export const typeDefs = [
     acceptInvitation(where: MembershipWhereUniqueInput!): Membership
     declineInvitation(where: MembershipWhereUniqueInput!): Membership
     updateUser(where: UserWhereUniqueInput!, data: UserUpdateInput!): User
+    runAiAssistant(data: RunAiAssistantInput!): RunAiAssistantOutput!
   }
 
   type Query {
@@ -447,6 +448,17 @@ export const typeDefs = [
     users(first: Int, skip: Int): [User!]!
     exportDataset(where: ExportWhereUniqueInput!, format: ExportFormat!, options: ExportOptions): String!
     debug: JSON!
+  }
+
+  input RunAiAssistantInput {
+    assistantId: ID!
+    imageId: ID!
+    useAutoPolygon: Boolean
+  }
+
+  type RunAiAssistantOutput {
+    labels: [ID!]!
+    labelClasses: [ID!]!
   }
 
   input RunIogInput {

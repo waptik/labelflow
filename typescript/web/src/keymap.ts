@@ -23,6 +23,16 @@ export const keymap: Keymap = {
     description: "Polygon tool",
     category: "Tools",
   },
+  toolAiAssistant: {
+    key: "i",
+    description: "AI Assistant tool",
+    category: "Tools",
+  },
+  runAiAssistant: {
+    key: "r",
+    description: "Run AI Assistant tool",
+    category: "Tools",
+  },
   openLabelClassSelectionPopover: {
     key: "c",
     description: "Change class of currently selected label",

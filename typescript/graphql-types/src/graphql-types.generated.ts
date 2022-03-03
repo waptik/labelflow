@@ -451,6 +451,7 @@ export type Mutation = {
   acceptInvitation?: Maybe<Membership>;
   declineInvitation?: Maybe<Membership>;
   updateUser?: Maybe<User>;
+  runAiAssistant: RunAiAssistantOutput;
 };
 
 
@@ -613,6 +614,11 @@ export type MutationUpdateUserArgs = {
   data: UserUpdateInput;
 };
 
+
+export type MutationRunAiAssistantArgs = {
+  data: RunAiAssistantInput;
+};
+
 export type Query = {
   __typename?: 'Query';
   hello?: Maybe<Scalars['String']>;
@@ -758,6 +764,18 @@ export type QueryExportDatasetArgs = {
   where: ExportWhereUniqueInput;
   format: ExportFormat;
   options?: Maybe<ExportOptions>;
+};
+
+export type RunAiAssistantInput = {
+  assistantId: Scalars['ID'];
+  imageId: Scalars['ID'];
+  useAutoPolygon?: Maybe<Scalars['Boolean']>;
+};
+
+export type RunAiAssistantOutput = {
+  __typename?: 'RunAiAssistantOutput';
+  labels: Array<Scalars['ID']>;
+  labelClasses: Array<Scalars['ID']>;
 };
 
 export type RunIogInput = {
@@ -1022,6 +1040,8 @@ export type ResolversTypes = {
   MembershipWhereUniqueInput: MembershipWhereUniqueInput;
   Mutation: ResolverTypeWrapper<{}>;
   Query: ResolverTypeWrapper<{}>;
+  RunAiAssistantInput: RunAiAssistantInput;
+  RunAiAssistantOutput: ResolverTypeWrapper<RunAiAssistantOutput>;
   RunIogInput: RunIogInput;
   UpdateIogInput: UpdateIogInput;
   Upload: ResolverTypeWrapper<Scalars['Upload']>;
@@ -1105,6 +1125,8 @@ export type ResolversParentTypes = {
   MembershipWhereUniqueInput: MembershipWhereUniqueInput;
   Mutation: {};
   Query: {};
+  RunAiAssistantInput: RunAiAssistantInput;
+  RunAiAssistantOutput: RunAiAssistantOutput;
   RunIogInput: RunIogInput;
   UpdateIogInput: UpdateIogInput;
   Upload: Scalars['Upload'];
@@ -1282,6 +1304,7 @@ export type MutationResolvers<ContextType = any, ParentType extends ResolversPar
   acceptInvitation?: Resolver<Maybe<ResolversTypes['Membership']>, ParentType, ContextType, RequireFields<MutationAcceptInvitationArgs, 'where'>>;
   declineInvitation?: Resolver<Maybe<ResolversTypes['Membership']>, ParentType, ContextType, RequireFields<MutationDeclineInvitationArgs, 'where'>>;
   updateUser?: Resolver<Maybe<ResolversTypes['User']>, ParentType, ContextType, RequireFields<MutationUpdateUserArgs, 'where' | 'data'>>;
+  runAiAssistant?: Resolver<ResolversTypes['RunAiAssistantOutput'], ParentType, ContextType, RequireFields<MutationRunAiAssistantArgs, 'data'>>;
 };
 
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
@@ -1310,6 +1333,12 @@ export type QueryResolvers<ContextType = any, ParentType extends ResolversParent
   users?: Resolver<Array<ResolversTypes['User']>, ParentType, ContextType, RequireFields<QueryUsersArgs, never>>;
   exportDataset?: Resolver<ResolversTypes['String'], ParentType, ContextType, RequireFields<QueryExportDatasetArgs, 'where' | 'format'>>;
   debug?: Resolver<ResolversTypes['JSON'], ParentType, ContextType>;
+};
+
+export type RunAiAssistantOutputResolvers<ContextType = any, ParentType extends ResolversParentTypes['RunAiAssistantOutput'] = ResolversParentTypes['RunAiAssistantOutput']> = {
+  labels?: Resolver<Array<ResolversTypes['ID']>, ParentType, ContextType>;
+  labelClasses?: Resolver<Array<ResolversTypes['ID']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
 export interface UploadScalarConfig extends GraphQLScalarTypeConfig<ResolversTypes['Upload'], any> {
@@ -1374,6 +1403,7 @@ export type Resolvers<ContextType = any> = {
   Membership?: MembershipResolvers<ContextType>;
   Mutation?: MutationResolvers<ContextType>;
   Query?: QueryResolvers<ContextType>;
+  RunAiAssistantOutput?: RunAiAssistantOutputResolvers<ContextType>;
   Upload?: GraphQLScalarType;
   UploadTarget?: UploadTargetResolvers<ContextType>;
   UploadTargetDirect?: UploadTargetDirectResolvers<ContextType>;

@@ -1,0 +1,10 @@
+input RunAiAssistantInput {
+  assistantId: ID!
+  imageId: ID!
+  useAutoPolygon: Boolean
+}
+
+type RunAiAssistantOutput {
+  labels: [ID!]!
+  labelClasses: [ID!]!
+}
