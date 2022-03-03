@@ -1,12 +1,12 @@
 import {
   Box,
   Heading,
+  Img,
   Text,
   useColorModeValue as mode,
 } from "@chakra-ui/react";
 import NextLink from "next/link";
 import React from "react";
-import { Logo } from "../logo";
 import { TextLink } from "../text-link";
 import { DividerWithText } from "./divider-with-text";
 import { EmailSignIn } from "./email-sign-in";
@@ -16,7 +16,7 @@ import { useSignIn } from "./sign-in.context";
 
 const BigLogo = () => (
   <NextLink href="/">
-    <Logo h="9" mb="10" iconColor="brand.600" mx="auto" cursor="pointer" />
+    <Img src="/static/img/ukr.svg" h="9" mb="10" mx="auto" cursor="pointer" />
   </NextLink>
 );
 

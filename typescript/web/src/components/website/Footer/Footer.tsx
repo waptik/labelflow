@@ -1,9 +1,14 @@
-import { Box, Stack, StackDivider, VisuallyHidden } from "@chakra-ui/react";
+import {
+  Box,
+  Img,
+  Stack,
+  StackDivider,
+  VisuallyHidden,
+} from "@chakra-ui/react";
 import * as React from "react";
 import NextLink from "next/link";
 import { Copyright } from "./Copyright";
 import { LinkGrid } from "./LinkGrid";
-import { Logo } from "../Logo";
 import { SocialMediaLinks } from "./SocialMediaLinks";
 import { SubscribeForm } from "./SubscribeForm";
 
@@ -24,7 +29,7 @@ export const Footer = () => (
         <NextLink href="/website">
           <Box as="a" href="/website" mx={{ base: "auto", lg: "0" }}>
             <VisuallyHidden>LabelFlow</VisuallyHidden>
-            <Logo h="24px" iconColor="brand.400" cursor="pointer" />
+            <Img src="/static/img/ukr.svg" h="24px" />
           </Box>
         </NextLink>
 
